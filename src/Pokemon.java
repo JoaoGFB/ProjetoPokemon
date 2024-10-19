@@ -100,20 +100,20 @@ public class Pokemon {
                 +this.IVs[3]+ "\nEspecial-Defesa: " +this.IVs[4]+"\nEspecial-Defesa: "+this.IVs[5]+"\nSpeed: "+this.IVs[6]);
     }
     public void DefinirIVs(){
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         do{
             System.out.println("Defina o HP: ");
-            IVs[0]= scanner.nextInt();
+            IVs[0]= sc.nextInt();
             System.out.println("Defina o Attack: ");
-            IVs[1]= scanner.nextInt();
+            IVs[1]= sc.nextInt();
             System.out.println("Defina o Defesa: ");
-            IVs[2]= scanner.nextInt();
+            IVs[2]= sc.nextInt();
             System.out.println("Defina o Especial-Attack: ");
-            IVs[3]= scanner.nextInt();
+            IVs[3]= sc.nextInt();
             System.out.println("Defina o Especial-Defesa");
-            IVs[4]= scanner.nextInt();
+            IVs[4]= sc.nextInt();
             System.out.println("Defina o Speed: ");
-            IVs[5]= scanner.nextInt();
+            IVs[5]= sc.nextInt();
         } while(IVs[0]<1||IVs[1]<1||IVs[2]<1||IVs[3]<0||IVs[4]<0||IVs[5]<0);
     }
 }
