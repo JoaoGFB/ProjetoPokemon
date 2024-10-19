@@ -1,4 +1,5 @@
 abstract class Humano {
+    //classe abstrata (não pode ser instanciada diretamente)
     //atributos
     private String profissao;
     private boolean eTreinador;
