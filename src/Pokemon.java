@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Pokemon {
     //atributos
@@ -10,15 +11,17 @@ public class Pokemon {
     private String movimentos;
     private String status;
     private String[] itens = new String[2];
+    private int[] IVs = new int[5];
     //construtor
-    public Pokemon(String nome, String t, String n, String h, String e, String m, String st) {
-       this.setNome(nome);
-       this.setTipo(t);
-       this.setNatureza(n);
-       this.setHabilidades(h);
-       this.setEvolucao(e);
-       this.setMovimentos(m);
-       this.setStatus(st);
+    public Pokemon(String nome, String t, String n, String h, String e, String m, String st, int []IVs) {
+        this.setNome(nome);
+        this.setTipo(t);
+        this.setNatureza(n);
+        this.setHabilidades(h);
+        this.setEvolucao(e);
+        this.setMovimentos(m);
+        this.setStatus(st);
+        this.setIVs(IVs);
     }
     //método público para apresentar
     public String apresentar() {
@@ -31,7 +34,10 @@ public class Pokemon {
                 ", movimentos='" + movimentos + '\'' +
                 ", status='" + status + '\'' +
                 ", itens=" + Arrays.toString(itens) +
-                '}';
+                '\''+ "IVs=" +'}';
+
+
+
     }
     //geters e setters
     public String getNome() {
@@ -81,5 +87,33 @@ public class Pokemon {
     }
     public void setItens(String[] itens) {
         this.itens = itens;
+    }
+    public int[] getIVs() {
+        return IVs;
+    }
+    public void setIVs(int[] IVs){
+        this.IVs= IVs;
+    }
+    // Métodos pokemon
+    public void ExibirIVs(){
+        System.out.println("Hp: "+this.IVs[0]+"\nAttack: "+this.IVs[1]+"\nDefesa: "+this.IVs[2]+"\nVelocidade-Attack"
+                +this.IVs[3]+ "\nEspecial-Defesa: " +this.IVs[4]+"\nEspecial-Defesa: "+this.IVs[5]+"\nSpeed: "+this.IVs[6]);
+    }
+    public void DefinirIVs(){
+        Scanner scanner = new Scanner(System.in);
+        do{
+            System.out.println("Defina o HP: ");
+            IVs[0]= scanner.nextInt();
+            System.out.println("Defina o Attack: ");
+            IVs[1]= scanner.nextInt();
+            System.out.println("Defina o Defesa: ");
+            IVs[2]= scanner.nextInt();
+            System.out.println("Defina o Especial-Attack: ");
+            IVs[3]= scanner.nextInt();
+            System.out.println("Defina o Especial-Defesa");
+            IVs[4]= scanner.nextInt();
+            System.out.println("Defina o Speed: ");
+            IVs[5]= scanner.nextInt();
+        } while(IVs[0]<1||IVs[1]<1||IVs[2]<1||IVs[3]<0||IVs[4]<0||IVs[5]<0);
     }
 }
