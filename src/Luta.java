@@ -4,12 +4,28 @@ public class Luta {
     //atributos
     private Pokemon pokemon1;
     private Pokemon pokemon2;
-    private Pokemon[] pokemons1;
-    private Pokemon[] pokemons2;
+    private Pokemon[] pokemons1 = new Pokemon[6];
+    private Pokemon[] pokemons2 = new Pokemon[6];
     //construtor
-    public Luta(Pokemon p1, Pokemon p2) {
+    public Luta() {
+
+    }
+    public void luta1x1(Pokemon p1, Pokemon p2) {
         this.setPokemon1(p1);
         this.setPokemon2(p2);
+        int IVp1 = CalcularIVUnico(p1);
+        int IVp2 = CalcularIVUnico(p2);
+        decidirLuta1x1(IVp1, IVp2);
+    }
+    public void decidirLuta1x1(int IVp1, int IVp2) {
+        if (IVp1 > IVp2){
+            System.out.println("O jogador 1 venceu a luta");
+        } else if (IVp1 < IVp2) {
+            System.out.println("O jogador 2 venceu a luta!");
+        }
+        else {
+            System.out.println("Ocorreu um empate");
+        }
     }
     //método público
     public void lutar() {
@@ -39,10 +55,10 @@ public class Luta {
     public void setPokemon2(Pokemon pokemon2) {
         this.pokemon2 = pokemon2;
     }
-    public Luta(Pokemon p1, Pokemon pk2,Pokemon pk3, Pokemon pk4,Pokemon pk5, Pokemon pk6,Pokemon p2, Pokemon pk8,Pokemon pk9
+    public void lutar6x6(Pokemon p1, Pokemon pk2,Pokemon pk3, Pokemon pk4,Pokemon pk5, Pokemon pk6,Pokemon p2, Pokemon pk8,Pokemon pk9
             , Pokemon pk10,Pokemon pk11, Pokemon pk12) {
-        this.setPokemons1(Pokemon p1, Pokemon pk2,Pokemon pk3, Pokemon pk4,Pokemon pk5, Pokemon pk6);
-        this.setPokemons2(Pokemon p2, Pokemon pk8,Pokemon pk9, Pokemon pk10,Pokemon pk11, Pokemon pk12);
+        this.setPokemons1(p1, pk2, pk3, pk4, pk5, pk6);
+        this.setPokemons2(p2,  pk8, pk9, pk10, pk11, pk12);
     }
     public Pokemon[] getPokemons1() {
         return pokemons1;
@@ -61,7 +77,7 @@ public class Luta {
     
     
     public void DecidirLuta6x6 (Pokemon[] aa, Pokemon[] bb) {
-        int iv1=0,iv2=0;
+        int iv1,iv2;
         iv1 = CalcularIVMultiplo(aa);
         iv2 = CalcularIVMultiplo(bb);
         if (iv1>iv2){
@@ -81,14 +97,13 @@ public class Luta {
         }
         return iv;        
     }
-    public int CalcularIVMultiplo (Pokemon[] a){
-        int iv=0;
+    public int CalcularIVMultiplo (Pokemon[] a) {
+        int iv = 0;
         for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a.length; j++) {
-                iv= iv+ a[i].getIVs()[j];
+            for (int j = 0; j < a[i].getIVs().length; j++) {
+                iv = iv + a[i].getIVs()[j];
             }
         }
         return iv;
     }
-        
 }

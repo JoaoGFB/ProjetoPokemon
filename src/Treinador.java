@@ -33,7 +33,13 @@ public class Treinador extends Humano{
     }
     public void adicionarPokemon(Pokemon pokemon, int indice) {
         if (indice >= 0 && indice < pokemons.length) {
-            pokemons[indice] = pokemon;
+            if (pokemons[indice] == null) {
+                pokemons[indice] = pokemon;
+            } else {
+                System.out.println("Já existe um Pokémon nesse índice.");
+            }
+        } else {
+            System.out.println("[ERRO] esse indíce é inválido.");
         }
     }
     public void adicionarInsignia(String insignia, int indice) {
@@ -41,9 +47,14 @@ public class Treinador extends Humano{
             insignias[indice] = insignia;
         }
     }
-        //método sobrescrito
+    //método sobrescrito
     @Override
-    void interagirComJogador() {
-
+    void mostrarInformacoes() {
+        System.out.println("-----Informações do Treinador-----");
+        System.out.println("Nome: "+this.getNome());
+        System.out.println("Profissão: "+this.getProfissao());
+        System.out.println("Possui super-poder? "+this.getSuperPoder());
+        System.out.println("Tipo de super-poder: "+this.getSuperPoder());
+        System.out.println("-------------------");
     }
 }

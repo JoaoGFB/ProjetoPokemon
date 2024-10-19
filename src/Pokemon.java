@@ -11,7 +11,7 @@ public class Pokemon {
     private String movimentos;
     private String status;
     private String[] itens = new String[2];
-    private int[] IVs = new int[5];
+    private int[] IVs = new int[6];
     //construtor
     public Pokemon(String nome, String t, String n, String h, String e, String m, String st, int []IVs) {
         this.setNome(nome);
@@ -35,9 +35,6 @@ public class Pokemon {
                 ", status='" + status + '\'' +
                 ", itens=" + Arrays.toString(itens) +
                 '\''+ "IVs=" +'}';
-
-
-
     }
     //geters e setters
     public String getNome() {
@@ -95,25 +92,21 @@ public class Pokemon {
         this.IVs= IVs;
     }
     // Métodos pokemon
-    public void ExibirIVs(){
-        System.out.println("Hp: "+this.IVs[0]+"\nAttack: "+this.IVs[1]+"\nDefesa: "+this.IVs[2]+"\nVelocidade-Attack"
-                +this.IVs[3]+ "\nEspecial-Defesa: " +this.IVs[4]+"\nEspecial-Defesa: "+this.IVs[5]+"\nSpeed: "+this.IVs[6]);
-    }
-    public void DefinirIVs(){
+    public void DefinirIVs() {
         Scanner sc = new Scanner(System.in);
-        do{
-            System.out.println("Defina o HP: ");
-            IVs[0]= sc.nextInt();
-            System.out.println("Defina o Attack: ");
-            IVs[1]= sc.nextInt();
-            System.out.println("Defina o Defesa: ");
-            IVs[2]= sc.nextInt();
-            System.out.println("Defina o Especial-Attack: ");
-            IVs[3]= sc.nextInt();
-            System.out.println("Defina o Especial-Defesa");
-            IVs[4]= sc.nextInt();
-            System.out.println("Defina o Speed: ");
-            IVs[5]= sc.nextInt();
-        } while(IVs[0]<1||IVs[1]<1||IVs[2]<1||IVs[3]<0||IVs[4]<0||IVs[5]<0);
+        System.out.println("Defina o HP: ");
+        this.IVs[0] = sc.nextInt();
+        System.out.println("Defina o Attack: ");
+        this.IVs[1] = sc.nextInt();
+        System.out.println("Defina o Defesa: ");
+        this.IVs[2] = sc.nextInt();
+        System.out.println("Defina o Especial-Attack: ");
+        this.IVs[3] = sc.nextInt();
+        System.out.println("Defina o Especial-Defesa: ");
+        this.IVs[4] = sc.nextInt();
+    }
+    public void ExibirIVs() {
+        System.out.println("Hp: " + this.IVs[0] + " Attack: " + this.IVs[1] + " Defesa: " + this.IVs[2] +
+                " Especial-Attack: " + this.IVs[3] + " Especial-Defesa: " + this.IVs[4]);
     }
 }

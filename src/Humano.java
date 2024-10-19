@@ -1,12 +1,13 @@
 abstract class Humano {
     //classe abstrata (não pode ser instanciada diretamente)
     //atributos
+    private String nome;
     private String profissao;
     private boolean eTreinador;
     private boolean possuiPoder;
     private String superPoder;
     //método abstrato
-    abstract void interagirComJogador();
+    abstract void mostrarInformacoes();
     //getters e setters
     public String getProfissao() {
         return profissao;
@@ -31,5 +32,11 @@ abstract class Humano {
     }
     public void setSuperPoder(String superPoder) {
         this.superPoder = superPoder;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
