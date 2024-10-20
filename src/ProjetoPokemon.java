@@ -39,6 +39,7 @@ public class ProjetoPokemon {
                 + "que possuem a capacidade de ensinar movimentos para os pokémons.";
         System.out.println(resumo);
 
+        System.out.println("------- Abordando os conceitos de POO com a temática de Pokémon -------");
         //criando o primeiro Pokémon e o inicializando com o vetor IVs1
         int[] IVs1 = {31, 30, 29, 28, 31};
         Pokemon pikachu = new Pokemon("Pikachu", "elétrico", "modesto",
