@@ -95,7 +95,6 @@ public class Pokemon {
     }
     // Métodos pokemon
     public void definirIVs() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Defina o HP: ");
         this.IVs[0] = verificarIV();
         System.out.println("Defina o Attack: ");

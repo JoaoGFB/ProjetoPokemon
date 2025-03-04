@@ -1,6 +1,6 @@
 package PokemonProjeto;
 
-import PokemonProjeto.Metodos.Luta;
+//import PokemonProjeto.Metodos.Luta;
 import PokemonProjeto.Pessoa.Treinador;
 import PokemonProjeto.Pokemon.Pokemon;
 import PokemonProjeto.Pokemon.PokemonLegends;
@@ -10,8 +10,21 @@ import java.util.Scanner;
 public class ProjetoPokemon {
     public static void main(String[] args) {
         //explicando o Pokémon
-        exibirTextoPorPartes();
+        Scanner sc = new Scanner(System.in);
+        String palava;
+        int numero;
 
+        do {
+            System.out.println("Gostaria de ver a introdução pokémon?");
+            System.out.println("0_Não\n1_Sim");
+            numero=sc.nextInt();
+        } while (numero<0||numero>1);
+        if (numero==1) {
+            exibirTextoPorPartes();
+            System.out.println("digite uma letra para continuar.");
+
+
+        }
         System.out.println("------- Abordando os conceitos de POO com a temática de Pokémon -------");
         //criando o primeiro Pokémon e o inicializando com o vetor IVs1
         int[] IVs1 = {31, 30, 29, 28, 31};
@@ -57,8 +70,8 @@ public class ProjetoPokemon {
         treinador1.exibirInventario();
 
         //criando primeira luta (aleatória)
-        Luta luta1 = new Luta();
-        luta1.luta1x1(pikachu, charmander);
+        //Luta luta1 = new Luta();
+        //luta1.luta1x1(pikachu, charmander);
 
         //criando mais 9 Pokémons para uma luta 6VS6
         int[] IVs4 = {30, 31, 30, 29, 31};
@@ -90,10 +103,10 @@ public class ProjetoPokemon {
                 "inner focus", "não evolui", "raio, ventania", "voando", IVs12);
 
         //criando segunda luta (comparativa 6VS6)
-        Luta luta2 = new Luta();
-        luta2.lutar6x6(pikachu, charmander, mewtwo, bulbasaur, squirtle, eevee,
-                jolteon, flareon, snorlax, alakazam, gengar, dragonite);
-        luta2.decidirLuta6x6(luta2.getPokemons1(), luta2.getPokemons2());
+        //Luta luta2 = new Luta();
+        //luta2.lutar6x6(pikachu, charmander, mewtwo, bulbasaur, squirtle, eevee,
+        //        jolteon, flareon, snorlax, alakazam, gengar, dragonite);
+        //luta2.decidirLuta6x6(luta2.getPokemons1(), luta2.getPokemons2());
 
         //solicitando ao usuário para definir os IVs de um Pokémon
         alakazam.definirIVs();
