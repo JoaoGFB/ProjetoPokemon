@@ -27,8 +27,7 @@ public class Pokemon {
     }
     //método público para apresentar
     public String apresentar() {
-        return "PokemonProjeto.Pokemon.Pokemon{" +
-                "nome='" + nome + '\'' +
+        return "nome='" + nome + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", natureza='" + natureza + '\'' +
                 ", habilidades='" + habilidades + '\'' +

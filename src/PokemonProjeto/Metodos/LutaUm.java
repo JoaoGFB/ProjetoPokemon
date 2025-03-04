@@ -20,11 +20,11 @@ public class LutaUm implements LutaInterface{
 
     private void decidirLutaUm(int IVp1, int IVp2) {
         if (IVp1 > IVp2) {
-            System.out.println(pokemon1.getNome() + " venceu!");
+            System.out.println("**** "+ pokemon1.getNome() + " venceu! ****");
         } else if (IVp1 < IVp2) {
-            System.out.println(pokemon2.getNome() + " venceu!");
+            System.out.println("**** "+ pokemon2.getNome() + " venceu! ****");
         } else {
-            System.out.println("Empate!");
+            System.out.println("**** Empate! ****");
         }
     }
 

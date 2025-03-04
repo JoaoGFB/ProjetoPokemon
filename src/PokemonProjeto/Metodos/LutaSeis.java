@@ -20,11 +20,11 @@ public class LutaSeis implements LutaInterface{
 
     private void decidirLutaSeis(int IVequipe1, int IVequipe2) {
         if (IVequipe1 > IVequipe2) {
-            System.out.println("Equipe 1 venceu!");
+            System.out.println("**** Equipe 1 venceu! ****");
         } else if (IVequipe1 < IVequipe2) {
-            System.out.println("Equipe 2 venceu!");
+            System.out.println("**** Equipe 2 venceu! ****");
         } else {
-            System.out.println("Empate!");
+            System.out.println("**** Empate! ****");
         }
     }
 
