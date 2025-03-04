@@ -80,7 +80,7 @@ public class Luta {
     }
     
     
-    public void DecidirLuta6x6 (Pokemon[] aa, Pokemon[] bb) {
+    public void decidirLuta6x6 (Pokemon[] aa, Pokemon[] bb) {
         int iv1,iv2;
         iv1 = calcIvMult(aa);
         iv2 = calcIvMult(bb);

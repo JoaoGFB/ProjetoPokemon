@@ -5,46 +5,12 @@ import PokemonProjeto.Pessoa.Treinador;
 import PokemonProjeto.Pokemon.Pokemon;
 import PokemonProjeto.Pokemon.PokemonLegends;
 
+import java.util.Scanner;
+
 public class ProjetoPokemon {
     public static void main(String[] args) {
         //explicando o Pokémon
-        String resumo = "Olá. Bem-vindo ao mundo dos pokémon! Meu nome é Professor Carvalho. Este mundo é habitado por criaturas chamadas de pokémon. "
-                + "Para algumas pessoas, os pokémons são animais de estimação; outros os usam para lutar entre si. Eu, no entanto, dedico minha vida e profissão a estudá-los.\n\n"
-                + "Cada pokémon tem atributos únicos que influenciam como agem entre si e com as pessoas. Por exemplo, este pokémon chamado <nomedopokemon> "
-                + "possui o tipo <atributos>, o que permite que <exemplo>. Além disso, cada pokémon pode usar movimentos e habilidades durante as batalhas, "
-                + "e cada movimento está associado a um tipo específico. Dependendo do tipo do movimento e do pokémon afetado por ele, ele pode ser super-eficaz, "
-                + "ineficaz ou não ser afetado. Este <nomedopokemon>, por exemplo, é do tipo <tipo> e pode executar um movimento chamado <movimento>.\n\n"
-                + "Conforme um pokémon luta, ele recebe experiência e, com o passar do tempo, atinge novos níveis. Em certos casos, os pokémons podem evoluir "
-                + "quando chegam a um nível específico, aumentando seus atributos. Apesar de nem todos os pokémons evoluírem, todos ficam mais fortes quanto mais batalham. "
-                + "Veja este <nomedopokemon>, que pode evoluir para um <evolucao> quando chegar ao nível <nivel>.\n\n"
-                + "Para me ajudar a catalogar e estudar pokémons, criei a Pokédex, uma enciclopédia de bolso que armazena todas as informações adquiridas de todos os pokémons "
-                + "da região. Nela, você pode acessar atributos, habilidades e características de todos os pokémons. Permita-me demonstrar. Olhe o que a Pokédex tem a dizer sobre "
-                + "este <nomedopokemon>: <descricao>. Incrível, não?\n\n"
-                + "Pokémons podem ter diferentes atributos que influenciam suas habilidades. Entre elas estão as habilidades, que funcionam como uma espécie de efeito ativado "
-                + "dependendo de certas condições. Este <nomedopokemon> possui a habilidade <habilidade>. Além disso, há as naturezas que aumentam um atributo de um pokémon, "
-                + "porém diminuem outro. Cada pokémon possui afinidade em certos atributos, e treinadores experientes chamam isso de “Valores Individuais” ou “IVs”. Quanto mais IVs "
-                + "um pokémon possuir, mais forte ele é.\n\n"
-                + "Durante uma batalha, um pokémon pode ser afetado por certos movimentos, resultando em uma condição. Os pokémons também podem segurar até um item para ajudá-los "
-                + "em batalha. Alguns itens são como frutas que, durante certas condições, o pokémon come, causando efeitos variados. Por exemplo, este <item> faz com que <efeito> "
-                + "quando <condição>.\n\n"
-                + "Por último, um fenômeno raro entre os pokémons é o “Pokérus”, uma espécie de vírus. Não se sabe exatamente como os pokémons contraem essa doença, mas sabemos que "
-                + "o único efeito dela é causar um aumento no ganho de experiência.\n\n"
-                + "Em todas as regiões do mundo, é possível encontrar pokémons lendários. Estes pokémons possuem grande poder, mas existem apenas um de suas respectivas espécies e "
-                + "são extremamente difíceis de serem capturados, geralmente encontrando-se em habitats específicos. Já nós, seres humanos, podemos ter várias profissões, uma delas "
-                + "sendo a de treinador pokémon, na qual interagimos com o jogador. O jogador é uma pessoa diferente, pois pode interagir com o mundo, enquanto nós não conseguimos "
-                + "interagir apenas com ele.\n\n"
-                + "Existem pessoas especiais que possuem poderes, e elas são tão raras que quase não existem. Os treinadores não podem levar mais de seis pokémons ao mesmo tempo. "
-                + "Além disso, os treinadores que possuem as 8 insígnias da região podem tentar derrotar a Elite 4, que são os treinadores mais fortes. Se conseguir derrotá-los, "
-                + "torna-se um campeão.\n\n"
-                + "Treinadores podem ter outras profissões que, às vezes, definem o tipo de pokémon que usam. Eles podem ganhar dinheiro batalhando ou vendendo itens que possuem. "
-                + "A maioria dos itens é destinada ao uso em batalha, como curar o HP do seu pokémon. As Pokébolas são itens feitos para capturar pokémons. Algumas Pokébolas têm funções "
-                + "específicas, como a Dive Ball, que serve para facilitar a captura de pokémons debaixo da água; essa é apenas uma entre várias Pokébolas especiais.\n\n"
-                + "Os iniciais são pokémons de três tipos diferentes: água, planta e fogo. Apenas o jogador e seu rival podem escolher um pokémon inicial para começar a jornada. Durante "
-                + "a jornada, você pode se deparar com alguma “barreira” que impeça seu progresso, mas não se preocupe, pois é possível que, durante sua jornada, você encontre algum "
-                + "item que ajude a remover a barreira e prosseguir.\n\n"
-                + "O jogador tem um inventário onde guarda todos os seus itens, incluindo itens especiais, a TM case e Pokébolas. A TM case serve para guardar discos chamados TM, "
-                + "que possuem a capacidade de ensinar movimentos para os pokémons.";
-        System.out.println(resumo);
+        exibirTextoPorPartes();
 
         System.out.println("------- Abordando os conceitos de POO com a temática de Pokémon -------");
         //criando o primeiro Pokémon e o inicializando com o vetor IVs1
@@ -127,11 +93,70 @@ public class ProjetoPokemon {
         Luta luta2 = new Luta();
         luta2.lutar6x6(pikachu, charmander, mewtwo, bulbasaur, squirtle, eevee,
                 jolteon, flareon, snorlax, alakazam, gengar, dragonite);
-        luta2.DecidirLuta6x6(luta2.getPokemons1(), luta2.getPokemons2());
+        luta2.decidirLuta6x6(luta2.getPokemons1(), luta2.getPokemons2());
 
         //solicitando ao usuário para definir os IVs de um Pokémon
-        alakazam.DefinirIVs();
+        alakazam.definirIVs();
         //exibindo os IVs do Pokémon que foram definidos pelo usuário
-        alakazam.ExibirIVs();
+        alakazam.exibirIVs();
+    }
+
+    private static void exibirTextoPorPartes() {
+        Scanner scanner = new Scanner(System.in);
+        String[] partesTexto = {
+                "Olá. Bem-vindo ao mundo dos pokémon! Meu nome é Professor Carvalho. Este mundo é habitado por criaturas chamadas de pokémon.",
+                "Para algumas pessoas, os pokémons são animais de estimação; outros os usam para lutar entre si. Eu, no entanto, dedico minha vida e profissão a estudá-los.",
+                "Cada pokémon tem atributos únicos que influenciam como agem entre si e com as pessoas. Por exemplo, este pokémon chamado <nomedopokemon> possui o tipo <atributos>, o que permite que <exemplo>.",
+                "Além disso, cada pokémon pode usar movimentos e habilidades durante as batalhas, e cada movimento está associado a um tipo específico.",
+                "Dependendo do tipo do movimento e do pokémon afetado por ele, ele pode ser super-eficaz, ineficaz ou não ser afetado.",
+                "Este <nomedopokemon>, por exemplo, é do tipo <tipo> e pode executar um movimento chamado <movimento>.",
+                "Conforme um pokémon luta, ele recebe experiência e, com o passar do tempo, atinge novos níveis.",
+                "Em certos casos, os pokémons podem evoluir quando chegam a um nível específico, aumentando seus atributos.",
+                "Apesar de nem todos os pokémons evoluírem, todos ficam mais fortes quanto mais batalham.",
+                "Veja este <nomedopokemon>, que pode evoluir para um <evolucao> quando chegar ao nível <nivel>.",
+                "Para me ajudar a catalogar e estudar pokémons, criei a Pokédex, uma enciclopédia de bolso que armazena todas as informações adquiridas de todos os pokémons da região.",
+                "Nela, você pode acessar atributos, habilidades e características de todos os pokémons.",
+                "Permita-me demonstrar. Olhe o que a Pokédex tem a dizer sobre este <nomedopokemon>: <descricao>. Incrível, não?",
+                "Pokémons podem ter diferentes atributos que influenciam suas habilidades.",
+                "Entre elas estão as habilidades, que funcionam como uma espécie de efeito ativado dependendo de certas condições.",
+                "Este <nomedopokemon> possui a habilidade <habilidade>.",
+                "Além disso, há as naturezas que aumentam um atributo de um pokémon, porém diminuem outro.",
+                "Cada pokémon possui afinidade em certos atributos, e treinadores experientes chamam isso de 'Valores Individuais' ou 'IVs'.",
+                "Quanto mais IVs um pokémon possuir, mais forte ele é.",
+                "Durante uma batalha, um pokémon pode ser afetado por certos movimentos, resultando em uma condição.",
+                "Os pokémons também podem segurar até um item para ajudá-los em batalha.",
+                "Alguns itens são como frutas que, durante certas condições, o pokémon come, causando efeitos variados.",
+                "Por exemplo, este <item> faz com que <efeito> quando <condição>.",
+                "Por último, um fenômeno raro entre os pokémons é o 'Pokérus', uma espécie de vírus.",
+                "Não se sabe exatamente como os pokémons contraem essa doença, mas sabemos que o único efeito dela é causar um aumento no ganho de experiência.",
+                "Em todas as regiões do mundo, é possível encontrar pokémons lendários.",
+                "Estes pokémons possuem grande poder, mas existem apenas um de suas respectivas espécies e são extremamente difíceis de serem capturados.",
+                "Já nós, seres humanos, podemos ter várias profissões, uma delas sendo a de treinador pokémon, na qual interagimos com o jogador.",
+                "O jogador é uma pessoa diferente, pois pode interagir com o mundo, enquanto nós não conseguimos interagir apenas com ele.",
+                "Existem pessoas especiais que possuem poderes, e elas são tão raras que quase não existem.",
+                "Os treinadores não podem levar mais de seis pokémons ao mesmo tempo.",
+                "Além disso, os treinadores que possuem as 8 insígnias da região podem tentar derrotar a Elite 4, que são os treinadores mais fortes.",
+                "Se conseguir derrotá-los, torna-se um campeão.",
+                "Treinadores podem ter outras profissões que, às vezes, definem o tipo de pokémon que usam.",
+                "Eles podem ganhar dinheiro batalhando ou vendendo itens que possuem.",
+                "A maioria dos itens é destinada ao uso em batalha, como curar o HP do seu pokémon.",
+                "As Pokébolas são itens feitos para capturar pokémons.",
+                "Algumas Pokébolas têm funções específicas, como a Dive Ball, que serve para facilitar a captura de pokémons debaixo da água; essa é apenas uma entre várias Pokébolas especiais.",
+                "Os iniciais são pokémons de três tipos diferentes: água, planta e fogo.",
+                "Apenas o jogador e seu rival podem escolher um pokémon inicial para começar a jornada.",
+                "Durante a jornada, você pode se deparar com alguma 'barreira' que impeça seu progresso, mas não se preocupe, pois é possível que, durante sua jornada, você encontre algum item que ajude a remover a barreira e prosseguir.",
+                "O jogador tem um inventário onde guarda todos os seus itens, incluindo itens especiais, a TM case e Pokébolas.",
+                "A TM case serve para guardar discos chamados TM, que possuem a capacidade de ensinar movimentos para os pokémons."
+        };
+
+        System.out.println("Pressione Enter para continuar...");
+
+        for (int i = 0; i < partesTexto.length; i++) {
+            String parte = partesTexto[i];
+            System.out.println(parte);
+            scanner.nextLine();
+        }
+        System.out.println("Fim da introdução.");
+        scanner.close();
     }
 }

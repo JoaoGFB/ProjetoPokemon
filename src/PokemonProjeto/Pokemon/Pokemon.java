@@ -94,7 +94,7 @@ public class Pokemon {
         this.IVs= IVs;
     }
     // Métodos pokemon
-    public void DefinirIVs() {
+    public void definirIVs() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Defina o HP: ");
         this.IVs[0] = verificarIV();
@@ -117,7 +117,7 @@ public class Pokemon {
         return numero;
     }
 
-    public void ExibirIVs() {
+    public void exibirIVs() {
         System.out.println("Hp: " + this.IVs[0] + " Attack: " + this.IVs[1] + " Defesa: " + this.IVs[2] +
                 " Especial-Attack: " + this.IVs[3] + " Especial-Defesa: " + this.IVs[4]);
     }
