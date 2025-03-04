@@ -114,6 +114,21 @@ public class ProjetoPokemon {
         alakazam.definirIVs();
         //exibindo os IVs do Pokémon que foram definidos pelo usuário
         alakazam.exibirIVs();
+
+
+
+        //Evoluindo um Pokémon
+        int[] IV13 = {4,6,8,9,10};
+
+        Pokemon Magikarp = new Pokemon("Magikarp", "agua", "raivoso", "Previnir",
+                "Gyaradox", "Agua, Splash", "Focado", IV13);
+        System.out.println(Magikarp.apresentar());
+        Magikarp.evoluirPokemon();
+        IV13 = new int[]{34,60,80,70,120};
+        Magikarp = new Pokemon("Gyaradox", "agua,dragão", "raivoso","Intimidar",
+                "Evolução Final", "Dragon pulse, Iron tail, Aqua tail", "Pensador",IV13);
+        System.out.println(Magikarp.apresentar());
+
     }
 
     private static void exibirTextoPorPartes() {
