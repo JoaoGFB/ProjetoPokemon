@@ -1,11 +1,14 @@
+package PokemonProjeto.Pessoa;
+
 abstract class Humano {
     //classe abstrata (não pode ser instanciada diretamente)
     //atributos
     private String nome;
     private String profissao;
-    private boolean eTreinador;
+    private boolean treinador;
     private boolean possuiPoder;
     private String superPoder;
+    private float dinheiro;
     //método abstrato
     abstract void mostrarInformacoes();
     //getters e setters
@@ -15,11 +18,11 @@ abstract class Humano {
     public void setProfissao(String profissao) {
         this.profissao = profissao;
     }
-    public boolean geteTreinador() {
-        return eTreinador;
+    public boolean getTreinador() {
+        return treinador;
     }
-    public void seteTreinador(boolean eTreinador) {
-        this.eTreinador = eTreinador;
+    public void setTreinador(boolean eTreinador) {
+        this.treinador = eTreinador;
     }
     public boolean getPossuiPoder() {
         return possuiPoder;
@@ -38,5 +41,13 @@ abstract class Humano {
     }
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public float getDinheiro() {
+        return dinheiro;
+    }
+
+    public void setDinheiro(float dinheiro) {
+        this.dinheiro = dinheiro;
     }
 }

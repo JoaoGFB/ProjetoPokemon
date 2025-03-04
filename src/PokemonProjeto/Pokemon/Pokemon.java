@@ -1,3 +1,5 @@
+package PokemonProjeto.Pokemon;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -25,7 +27,7 @@ public class Pokemon {
     }
     //método público para apresentar
     public String apresentar() {
-        return "Pokemon{" +
+        return "PokemonProjeto.Pokemon.Pokemon{" +
                 "nome='" + nome + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", natureza='" + natureza + '\'' +
@@ -95,16 +97,26 @@ public class Pokemon {
     public void DefinirIVs() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Defina o HP: ");
-        this.IVs[0] = sc.nextInt();
+        this.IVs[0] = verificarIV();
         System.out.println("Defina o Attack: ");
-        this.IVs[1] = sc.nextInt();
+        this.IVs[1] = verificarIV();
         System.out.println("Defina o Defesa: ");
-        this.IVs[2] = sc.nextInt();
+        this.IVs[2] = verificarIV();
         System.out.println("Defina o Especial-Attack: ");
-        this.IVs[3] = sc.nextInt();
+        this.IVs[3] = verificarIV();
         System.out.println("Defina o Especial-Defesa: ");
-        this.IVs[4] = sc.nextInt();
+        this.IVs[4] = verificarIV();
     }
+    public int verificarIV () {
+        Scanner sc = new Scanner(System.in);
+        int numero;
+        do{
+            numero = sc.nextInt();
+            System.out.println("IV > 0");
+        }while (numero<0);
+        return numero;
+    }
+
     public void ExibirIVs() {
         System.out.println("Hp: " + this.IVs[0] + " Attack: " + this.IVs[1] + " Defesa: " + this.IVs[2] +
                 " Especial-Attack: " + this.IVs[3] + " Especial-Defesa: " + this.IVs[4]);

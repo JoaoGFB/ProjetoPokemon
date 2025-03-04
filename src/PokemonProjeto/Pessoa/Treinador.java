@@ -1,16 +1,13 @@
+package PokemonProjeto.Pessoa;
+
+import PokemonProjeto.Pokemon.Pokemon;
+
 public class Treinador extends Humano{
     //atributos
     private Pokemon[] pokemons = new Pokemon[7];
     private String[] insignias = new String[9];
-    float dinheiro;
     int itens;
     //getters e setters
-    public float getDinheiro() {
-        return dinheiro;
-    }
-    public void setDinheiro(float dinheiro) {
-        this.dinheiro = dinheiro;
-    }
     public int getItens() {
         return itens;
     }
@@ -49,12 +46,40 @@ public class Treinador extends Humano{
     }
     //método sobrescrito
     @Override
-    void mostrarInformacoes() {
-        System.out.println("-----Informações do Treinador-----");
+    public void mostrarInformacoes() {
+        System.out.println("-----Informações do PokemonProjeto.Pessoa.Treinador-----");
         System.out.println("Nome: "+this.getNome());
         System.out.println("Profissão: "+this.getProfissao());
         System.out.println("Possui super-poder? "+this.getSuperPoder());
         System.out.println("Tipo de super-poder: "+this.getSuperPoder());
+        System.out.println("Quantidade de dinheiro:"+this.getDinheiro());
         System.out.println("-------------------");
+    }
+    public void bolsa (){
+        System.out.println("Quantidade de itens: "+this.getItens());
+        System.out.println("Quantidade de dinheiro:"+this.getDinheiro());
+        exibirInventario();
+    }
+    public void encontrarPokemonNome (String nome){
+        for (int i = 0; i < pokemons.length; i++) {
+            if (nome == pokemons[i].getNome()){
+                System.out.println("Existe pokémon com este nome");
+                pokemons[i].apresentar();
+
+            }
+        // Aqui mesma situação do debaixo se quiser resolver o problema da exceção.
+        }
+    }
+    public Pokemon encontrarPokemonIndice (int numero) {
+        // Aqui tem que ter um tratamento de exceção ou retirar o return pokemon e colocarrr void
+        // caso o numero seja < 0 e maior que pokemon.lengt
+        return null;
+    }
+
+    public void deletarPokemonIndice (int numero) {
+        ///precisa verificar este número
+        if (pokemons[numero]!= null) {
+            pokemons[numero]= null;
+        }
     }
 }

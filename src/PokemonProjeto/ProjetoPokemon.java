@@ -1,3 +1,10 @@
+package PokemonProjeto;
+
+import PokemonProjeto.Metodos.Luta;
+import PokemonProjeto.Pessoa.Treinador;
+import PokemonProjeto.Pokemon.Pokemon;
+import PokemonProjeto.Pokemon.PokemonLegends;
+
 public class ProjetoPokemon {
     public static void main(String[] args) {
         //explicando o Pokémon
@@ -53,7 +60,8 @@ public class ProjetoPokemon {
         //criando um Pokémon lendário (objeto da classe PokemonLegend) e inicializando o vetor IVs3
         int[] IVs3 = {31, 31, 30, 29, 31};
         PokemonLegends mewtwo = new PokemonLegends("Mewtwo", "psíquico", "calma",
-                "pressão", "nenhuma", "psíquico, bola sombria", "dormindo", IVs3, "caverna", "raro");
+                "pressão", "nenhuma", "psíquico, bola sombria", "dormindo", IVs3, "caverna", "raro",
+                "Um pokémon lendario, criado artificialmente usando o DNA do lendário pokémon Mew e otimizando a sua genética para o combate.");
         mewtwo.descreverHabitat();//usando o método descreverHabitat
 
         //apresentado o pokemon (informaçaões dele)
@@ -62,8 +70,8 @@ public class ProjetoPokemon {
         //criando o treinador (exemplo)
         Treinador treinador1 = new Treinador();
         treinador1.setNome("Giovanni");
-        treinador1.setProfissao("Treinador de Pokemon");
-        treinador1.seteTreinador(true);
+        treinador1.setProfissao("PokemonProjeto.Pessoa.Treinador de PokemonProjeto.Pokemon.Pokemon");
+        treinador1.setTreinador(true);
         treinador1.setDinheiro(78.50f);
         treinador1.setItens(4);
         //exibindo as informações do treinador por meio de um método sobrescrito
