@@ -1,6 +1,7 @@
 package PokemonProjeto;
 
-import PokemonProjeto.Metodos.Luta;
+import PokemonProjeto.Metodos.Luta1x1;
+import PokemonProjeto.Metodos.Luta6x6;
 import PokemonProjeto.Pessoa.Treinador;
 import PokemonProjeto.Pokemon.Pokemon;
 import PokemonProjeto.Pokemon.PokemonLegends;
@@ -57,8 +58,12 @@ public class ProjetoPokemon {
         treinador1.exibirInventario();
 
         //criando primeira luta (aleatória)
-        Luta luta1 = new Luta();
-        luta1.luta1x1(pikachu, charmander);
+        //classe Luta
+//        Luta luta1 = new Luta();
+//        luta1.luta1x1(pikachu, charmander);
+
+        Luta1x1 luta1x1 = new Luta1x1(pikachu, charmander);
+        luta1x1.lutar();
 
         //criando mais 9 Pokémons para uma luta 6VS6
         int[] IVs4 = {30, 31, 30, 29, 31};
@@ -90,10 +95,16 @@ public class ProjetoPokemon {
                 "inner focus", "não evolui", "raio, ventania", "voando", IVs12);
 
         //criando segunda luta (comparativa 6VS6)
-        Luta luta2 = new Luta();
-        luta2.lutar6x6(pikachu, charmander, mewtwo, bulbasaur, squirtle, eevee,
-                jolteon, flareon, snorlax, alakazam, gengar, dragonite);
-        luta2.decidirLuta6x6(luta2.getPokemons1(), luta2.getPokemons2());
+        //clase Luta
+//        Luta luta2 = new Luta();
+//        luta2.lutar6x6(pikachu, charmander, mewtwo, bulbasaur, squirtle, eevee,
+//                jolteon, flareon, snorlax, alakazam, gengar, dragonite);
+//        luta2.decidirLuta6x6(luta2.getPokemons1(), luta2.getPokemons2());
+
+        Pokemon [] equipe1 = {pikachu, charmander, mewtwo, bulbasaur, squirtle, eevee};
+        Pokemon [] equipe2 = {jolteon, flareon, snorlax, alakazam, gengar, dragonite};
+        Luta6x6 luta6x6 = new Luta6x6(equipe1, equipe2);
+        luta6x6.lutar();
 
         //solicitando ao usuário para definir os IVs de um Pokémon
         alakazam.definirIVs();
@@ -157,6 +168,5 @@ public class ProjetoPokemon {
             scanner.nextLine();
         }
         System.out.println("Fim da introdução.");
-        scanner.close();
     }
 }
