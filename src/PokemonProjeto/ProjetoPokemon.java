@@ -4,78 +4,16 @@ import PokemonProjeto.Metodos.LutaUm;
 import PokemonProjeto.Metodos.LutaSeis;
 import PokemonProjeto.Pessoa.Treinador;
 import PokemonProjeto.Pokemon.Pokemon;
+import PokemonProjeto.Pokemon.PokemonLegends;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class ProjetoPokemon {
     public static void main(String[] args) {
         //explicando o Pokémon
         Scanner sc = new Scanner(System.in);
-        String palavra;
-        int numero, opcao;
-
-        List<Pokemon> pokemons = new ArrayList<>();
-
-        int[] IVs1 = {31, 30, 29, 28, 31};
-        pokemons.add(new Pokemon("Pikachu", "elétrico", "modesto",
-                "static", "raichu", "choque do trovão, onda de choque", "dormindo", IVs1));
-
-        int[] IVs2 = {25, 27, 26, 24, 28};
-        pokemons.add(new Pokemon("Charmander", "fogo", "bravíssimo",
-                "chama", "charmeleon", "lança-chamas, garra de dragão", "envenenado", IVs2));
-
-        int[] IVs3 = {31, 31, 30, 29, 31};
-        pokemons.add(new Pokemon("Mewtwo", "psíquico", "calma",
-                "pressão", "nenhuma", "psíquico, bola sombria", "dormindo", IVs3));
-
-        int[] IVs4 = {30, 31, 30, 29, 31};
-        pokemons.add(new Pokemon("Bulbasaur", "planta/venenoso", "calmo",
-                "overgrow", "venusaur", "folha navalha, chicote de vinha", "envenenado", IVs4));
-
-        int[] IVs5 = {28, 29, 30, 31, 27};
-        pokemons.add(new Pokemon("Squirtle", "água", "ousado",
-                "torrent", "blastoise", "jato d'água, casco armado", "molhado", IVs5));
-
-        int[] IVs6 = {31, 28, 27, 30, 31};
-        pokemons.add(new Pokemon("Eevee", "normal", "jovial",
-                "adaptabilidade", "umbreon/espeon", "ataque rápido, investida", "confuso", IVs6));
-
-        int[] IVs7 = {27, 31, 29, 28, 30};
-        pokemons.add(new Pokemon("Jolteon", "elétrico", "tímido",
-                "voltagem", "evolução final", "choque do trovão, agilidade", "paralisado", IVs7));
-
-        int[] IVs8 = {31, 30, 29, 28, 31};
-        pokemons.add(new Pokemon("Flareon", "fogo", "valente",
-                "flash fire", "evolução final", "lança-chamas, superaquecimento", "queimado", IVs8));
-
-        int[] IVs9 = {29, 31, 30, 27, 28};
-        pokemons.add(new Pokemon("Snorlax", "normal", "relaxado",
-                "thick fat", "não evolui", "descanso, mega soco", "dormindo", IVs9));
-
-        int[] IVs10 = {31, 28, 29, 31, 30};
-        pokemons.add(new Pokemon("Alakazam", "psíquico", "modesto",
-                "syncronize", "não evolui", "psíquico, teleporte", "envenenado", IVs10));
-
-        int[] IVs11 = {28, 27, 30, 31, 29};
-        pokemons.add(new Pokemon("Gengar", "fantasma/venenoso", "travesso",
-                "levitação", "não evolui", "bomba de gás, bola sombra", "assombrado", IVs11));
-
-        int[] IVs12 = {30, 31, 29, 28, 31};
-        pokemons.add(new Pokemon("Dragonite", "dragão/voador", "firme",
-                "inner focus", "não evolui", "raio, ventania", "voando", IVs12));
-
-        Treinador treinador1 = new Treinador();
-        treinador1.setNome("Giovanni");
-        treinador1.setProfissao("Líder do Team Rocket");
-        treinador1.setTreinador(true);
-        treinador1.setDinheiro(1000.50f);
-        treinador1.setItens(5);
-        treinador1.adicionarInsignia("Insígnia da Rocha", 0);
-        treinador1.adicionarInsignia("Insígnia do Vulcão", 1);
-        treinador1.adicionarInsignia("Insígnia da Cascata", 2);
-        treinador1.adicionarInsignia("Insígnia da Alma", 3);
+        String palava;
+        int numero;
 
         do {
             System.out.println("Gostaria de ver a introdução pokémon?");
@@ -85,161 +23,98 @@ public class ProjetoPokemon {
         if (numero==1) {
             exibirTextoPorPartes();
             System.out.println("digite uma letra para continuar.");
-            palavra = sc.next();
+            palava = sc.next();
+
         }
-        do {
-            System.out.println("\n## Menu Pokémon ##");
-            System.out.println("1. Ver Introdução Pokémon");
-            System.out.println("2. Escolher Pokémon para Batalha (1x1)");
-            System.out.println("3. Escolher Pokémon para Batalha (6x6)");
-            System.out.println("4. Exibir IVs de um Pokémon");
-            System.out.println("5. Definir IVs de um Pokémon");
-            System.out.println("6. Exibir inventário do treinador");
-            System.out.println("7. Sair");
-            System.out.print("Escolha uma opção: ");
-            opcao = sc.nextInt();
-            sc.nextLine();
+        System.out.println("------- Abordando os conceitos de POO com a temática de Pokémon -------");
+        //criando o primeiro Pokémon e o inicializando com o vetor IVs1
+        int[] IVs1 = {31, 30, 29, 28, 31};
+        Pokemon pikachu = new Pokemon("Pikachu", "elétrico", "modesto",
+                "static", "raichu", "choque do trovão, onda de choque", "dormindo", IVs1);
 
-            int escolha;
-            switch (opcao) {
-                case 1:
-                    exibirTextoPorPartes();
-                    break;
-                case 2:
-                    int escolhasFeitas = 0;
-                    int[] p = new int[2];
-                    while (escolhasFeitas < 2) {
-                        System.out.println("\nEscolha o Pokémon para batalha:");
-                        for (int i = 0; i < pokemons.size(); i++) {
-                            System.out.println((i + 1) + "- " + pokemons.get(i).apresentar());
-                        }
-                        do {
-                            System.out.print("Digite o número do " + (escolhasFeitas + 1) + "º Pokémon escolhido: ");
-                            escolha = sc.nextInt();
-                        } while (escolha < 1 || escolha > pokemons.size());
-                        p[escolhasFeitas] = escolha - 1;
-                        escolhasFeitas++;
-                    }
-                    LutaUm l = new LutaUm(pokemons.get(p[0]), pokemons.get(p[1]));
-                    l.lutar();
-                    break;
-                case 3:
-                    Pokemon[] equipe1 = new Pokemon[6];
-                    Pokemon[] equipe2 = new Pokemon[6];
-                    System.out.println("\nEscolha os 6 Pokémon para a Equipe 1:");
-                    for (int i = 0; i < 6; i++) {
-                        System.out.println("\nEscolha o " + (i + 1) + "º Pokémon da Equipe 1:");
-                        for (int j = 0; j < pokemons.size(); j++) {
-                            System.out.println((j + 1) + "- " + pokemons.get(j).apresentar());
-                        }
-                        do {
-                            System.out.print("Digite o número do Pokémon escolhido: ");
-                            escolha = sc.nextInt();
-                        } while (escolha < 1 || escolha > pokemons.size());
-                        equipe1[i] = pokemons.get(escolha - 1);
-                    }
-                    System.out.println("\nEscolha os 6 Pokémon para a Equipe 2:");
-                    for (int i = 0; i < 6; i++) {
-                        System.out.println("\nEscolha o " + (i + 1) + "º Pokémon da Equipe 2:");
-                        for (int j = 0; j < pokemons.size(); j++) {
-                            System.out.println((j + 1) + "- " + pokemons.get(j).apresentar());
-                        }
-                        do {
-                            System.out.print("Digite o número do Pokémon escolhido: ");
-                            escolha = sc.nextInt();
-                        } while (escolha < 1 || escolha > pokemons.size());
-                        equipe2[i] = pokemons.get(escolha - 1);
-                    }
-                    LutaSeis luta6x6 = new LutaSeis(equipe1, equipe2);
-                    luta6x6.lutar();
-                    break;
-                case 4:
-                    do {
-                        System.out.println("Digite o número do Pokémon que deseja ver os IVs: ");
-                        for (int i = 0; i < pokemons.size(); i++) {
-                            System.out.println((i + 1) + "- " + pokemons.get(i).apresentar());
-                        }
-                        escolha = sc.nextInt();
-                    } while (escolha < 1 || escolha > pokemons.size());
-                    pokemons.get(escolha - 1).exibirIVs();
-                    break;
-                case 5:
-                    do {
-                        System.out.println("Digite o número do Pokémon que deseja definir os IVs: ");
-                        for (int i = 0; i < pokemons.size(); i++) {
-                            System.out.println((i + 1) + "- " + pokemons.get(i).apresentar());
-                        }
-                        escolha = sc.nextInt();
-                    } while (escolha < 1 || escolha > pokemons.size());
-                    Pokemon pokemonEscolhido = pokemons.get(escolha - 1);
-                    pokemonEscolhido.definirIVs();
-                    break;
-                case 6:
-                    treinador1.exibirInventario();
-                    break;
-                case 7:
-                    System.out.println("Saindo do programa. Até mais!");
-                    break;
-                default:
-                    System.out.println("Opção inválida. Tente novamente.");
-            }
-        } while (opcao != 7);
+        //criando um segundo Pokémon e o inicializando com o vetor IVs2
+        int[] IVs2 = {25, 27, 26, 24, 28};
+        Pokemon charmander = new Pokemon("Charmander", "fogo", "bravíssimo",
+                "chama", "charmeleon", "lança-chamas, garra de dragão", "envenenado", IVs2);
 
-        sc.close();
+        //criando um Pokémon lendário (objeto da classe PokemonLegend) e inicializando o vetor IVs3
+        int[] IVs3 = {31, 31, 30, 29, 31};
+        PokemonLegends mewtwo = new PokemonLegends("Mewtwo", "psíquico", "calma",
+                "pressão", "nenhuma", "psíquico, bola sombria", "dormindo", IVs3, "caverna", "raro",
+                "Um pokémon lendario, criado artificialmente usando o DNA do lendário pokémon Mew e otimizando a sua genética para o combate.");
+        mewtwo.descreverHabitat();//usando o método descreverHabitat
+
+        //apresentado o pokemon (informaçaões dele)
+        System.out.println(pikachu.apresentar());
+
+        //criando o treinador (exemplo)
+        Treinador treinador1 = new Treinador();
+        treinador1.setNome("Giovanni");
+        treinador1.setProfissao("PokemonProjeto.Pessoa.Treinador de PokemonProjeto.Pokemon.Pokemon");
+        treinador1.setTreinador(true);
+        treinador1.setDinheiro(78.50f);
+        treinador1.setItens(4);
+        //exibindo as informações do treinador por meio de um método sobrescrito
+        treinador1.mostrarInformacoes();
+
+        //adicionando Pokémons e insignias ao treinador
+        treinador1.adicionarPokemon(pikachu, 0);  // Pikachu no time
+        treinador1.adicionarPokemon(charmander, 1); // Charmander no time
+        treinador1.adicionarPokemon(mewtwo, 2);
+        treinador1.adicionarInsignia("insígnia da rocha", 0);
+        treinador1.adicionarInsignia("insígnia do vulcão", 1);
+        treinador1.adicionarInsignia("insígnia da cascata", 2);
+        treinador1.adicionarInsignia("insígnia da alma", 3);
+
+        //escolhendo Pokémon inicial e exibindo o inventário (insignias)
+        treinador1.escolherPokemonInicial("Mewtwo");
+        treinador1.exibirInventario();
+
+        //criando primeira luta (aleatória)
+        LutaUm luta1x1 = new LutaUm (pikachu, charmander);
+        luta1x1.lutar();
+        //criando mais 9 Pokémons para uma luta 6VS6
+        int[] IVs4 = {30, 31, 30, 29, 31};
+        Pokemon bulbasaur = new Pokemon("Bulbasaur", "planta/venenoso", "calmo",
+                "overgrow", "venusaur", "folha navalha, chicote de vinha", "envenenado", IVs4);
+        int[] IVs5 = {28, 29, 30, 31, 27};
+        Pokemon squirtle = new Pokemon("Squirtle", "água", "ousado",
+                "torrent", "blastoise", "jato d'água, casco armado", "molhado", IVs5);
+        int[] IVs6 = {31, 28, 27, 30, 31};
+        Pokemon eevee = new Pokemon("Eevee", "normal", "jovial",
+                "adaptabilidade", "umbreon/espeon", "ataque rápido, investida", "confuso", IVs6);
+        int[] IVs7 = {27, 31, 29, 28, 30};
+        Pokemon jolteon = new Pokemon("Jolteon", "elétrico", "tímido",
+                "voltagem", "evolução final", "choque do trovão, agilidade", "paralisado", IVs7);
+        int[] IVs8 = {31, 30, 29, 28, 31};
+        Pokemon flareon = new Pokemon("Flareon", "fogo", "valente",
+                "flash fire", "evolução final", "lança-chamas, superaquecimento", "queimado", IVs8);
+        int[] IVs9 = {29, 31, 30, 27, 28};
+        Pokemon snorlax = new Pokemon("Snorlax", "normal", "relaxado",
+                "thick fat", "não evolui", "descanso, mega soco", "dormindo", IVs9);
+        int[] IVs10 = {31, 28, 29, 31, 30};
+        Pokemon alakazam = new Pokemon("Alakazam", "psíquico", "modesto",
+                "syncronize", "não evolui", "psíquico, teleporte", "envenenado", IVs10);
+        int[] IVs11 = {28, 27, 30, 31, 29};
+        Pokemon gengar = new Pokemon("Gengar", "fantasma/venenoso", "travesso",
+                "levitação", "não evolui", "bomba de gás, bola sombra", "assombrado", IVs11);
+        int[] IVs12 = {30, 31, 29, 28, 31};
+        Pokemon dragonite = new Pokemon("Dragonite", "dragão/voador", "firme",
+                "inner focus", "não evolui", "raio, ventania", "voando", IVs12);
+
+        //criando segunda luta (comparativa 6VS6)
 
 
-//        System.out.println("------- Abordando os conceitos de POO com a temática de Pokémon -------");
-//        //criando o primeiro Pokémon e o inicializando com o vetor IVs1
-//
-//
-//        //apresentado o pokemon (informaçaões dele)
-//        System.out.println(pikachu.apresentar());
-//
-//        //criando o treinador (exemplo)
-//        Treinador treinador1 = new Treinador();
-//        treinador1.setNome("Giovanni");
-//        treinador1.setProfissao("PokemonProjeto.Pessoa.Treinador de PokemonProjeto.Pokemon.Pokemon");
-//        treinador1.setTreinador(true);
-//        treinador1.setDinheiro(78.50f);
-//        treinador1.setItens(4);
-//        //exibindo as informações do treinador por meio de um método sobrescrito
-//        treinador1.mostrarInformacoes();
-//
-//        //adicionando Pokémons e insignias ao treinador
-//        treinador1.adicionarPokemon(pikachu, 0);  // Pikachu no time
-//        treinador1.adicionarPokemon(charmander, 1); // Charmander no time
-//        treinador1.adicionarPokemon(mewtwo, 2);
-//        treinador1.adicionarInsignia("insígnia da rocha", 0);
-//        treinador1.adicionarInsignia("insígnia do vulcão", 1);
-//        treinador1.adicionarInsignia("insígnia da cascata", 2);
-//        treinador1.adicionarInsignia("insígnia da alma", 3);
-//
-//
-//
-//
-//        //escolhendo Pokémon inicial e exibindo o inventário (insignias)
-//        treinador1.escolherPokemonInicial("Mewtwo");
-//        treinador1.exibirInventario();
-//
-//        //criando primeira luta (aleatória)
-//        LutaUm luta1x1 = new LutaUm (pikachu, charmander);
-//        luta1x1.lutar();
-//
-//
-//        //criando segunda luta (comparativa 6VS6)
-//
-//
-//        Pokemon [] equipe1 = {pikachu, charmander, mewtwo, bulbasaur, squirtle, eevee};
-//        Pokemon [] equipe2 = {jolteon, flareon, snorlax, alakazam, gengar, dragonite};
-//        LutaSeis luta6x6 = new LutaSeis(equipe1, equipe2);
-//        luta6x6.lutar();
-//
-//        //solicitando ao usuário para definir os IVs de um Pokémon
-//        alakazam.definirIVs();
-//        //exibindo os IVs do Pokémon que foram definidos pelo usuário
-//        alakazam.exibirIVs();
+        Pokemon [] equipe1 = {pikachu, charmander, mewtwo, bulbasaur, squirtle, eevee};
+        Pokemon [] equipe2 = {jolteon, flareon, snorlax, alakazam, gengar, dragonite};
+        LutaSeis luta6x6 = new LutaSeis(equipe1, equipe2);
+        luta6x6.lutar();
+
+        //solicitando ao usuário para definir os IVs de um Pokémon
+        alakazam.definirIVs();
+        //exibindo os IVs do Pokémon que foram definidos pelo usuário
+        alakazam.exibirIVs();
     }
-
 
     private static void exibirTextoPorPartes() {
         Scanner scanner = new Scanner(System.in);

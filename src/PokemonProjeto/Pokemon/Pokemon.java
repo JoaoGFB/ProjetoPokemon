@@ -2,6 +2,7 @@ package PokemonProjeto.Pokemon;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Pokemon {
     //atributos
@@ -15,14 +16,14 @@ public class Pokemon {
     private String[] itens = new String[2];
     private int[] IVs = new int[6];
     //construtor
-    public Pokemon(String nome, String t, String n, String h, String e, String m, String st, int []IVs) {
+    public Pokemon(String nome, String tipo, String natu, String hab, String evo, String mov, String stat, int []IVs) {
         this.setNome(nome);
-        this.setTipo(t);
-        this.setNatureza(n);
-        this.setHabilidades(h);
-        this.setEvolucao(e);
-        this.setMovimentos(m);
-        this.setStatus(st);
+        this.setTipo(tipo);
+        this.setNatureza(natu);
+        this.setHabilidades(hab);
+        this.setEvolucao(evo);
+        this.setMovimentos(mov);
+        this.setStatus(stat);
         this.setIVs(IVs);
     }
     //método público para apresentar
@@ -30,12 +31,13 @@ public class Pokemon {
         return "nome='" + nome + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", natureza='" + natureza + '\'' +
-                ", habilidades='" + habilidades + '\'' +
+                "\nhabilidades='" + habilidades + '\'' +
                 ", evolucao='" + evolucao + '\'' +
                 ", movimentos='" + movimentos + '\'' +
-                ", status='" + status + '\'' +
+                "\nstatus='" + status + '\'' +
                 ", itens=" + Arrays.toString(itens) +
-                '\''+ "IVs=" +'}';
+                '\''+ "IVs= [" +this.IVs[0]+","+this.IVs[1]+","+this.IVs[2]+","+this.IVs[3]
+                +","+ this.IVs[4]+"] "+'}';
     }
     //geters e setters
     public String getNome() {
@@ -119,4 +121,16 @@ public class Pokemon {
         System.out.println("Hp: " + this.IVs[0] + " Attack: " + this.IVs[1] + " Defesa: " + this.IVs[2] +
                 " Especial-Attack: " + this.IVs[3] + " Especial-Defesa: " + this.IVs[4]);
     }
+
+    public void evoluirPokemon() {
+        Random aleatorio = new Random();
+        int chance;
+        do {
+            chance = aleatorio.nextInt(5);
+            System.out.println("O pokémon está juntando energia para evoluir...");
+        } while (chance != 1);
+        System.out.println("O pokémon evoluiu com sucesso.");
+    }
+
+
 }
