@@ -2,11 +2,11 @@ package PokemonProjeto.Metodos;
 
 import PokemonProjeto.Pokemon.Pokemon;
 
-public class Luta1x1 implements LutaInterface{
+public class LutaUm implements LutaInterface{
     private Pokemon pokemon1;
     private Pokemon pokemon2;
 
-    public Luta1x1(Pokemon p1, Pokemon p2) {
+    public LutaUm(Pokemon p1, Pokemon p2) {
         this.pokemon1 = p1;
         this.pokemon2 = p2;
     }
@@ -15,10 +15,10 @@ public class Luta1x1 implements LutaInterface{
     public void lutar() {
         int IVp1 = calcularIV(pokemon1);
         int IVp2 = calcularIV(pokemon2);
-        decidirLuta1x1(IVp1, IVp2);
+        decidirLutaUm(IVp1, IVp2);
     }
 
-    private void decidirLuta1x1(int IVp1, int IVp2) {
+    private void decidirLutaUm(int IVp1, int IVp2) {
         if (IVp1 > IVp2) {
             System.out.println(pokemon1.getNome() + " venceu!");
         } else if (IVp1 < IVp2) {

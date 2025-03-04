@@ -1,8 +1,7 @@
 package PokemonProjeto;
 
-
-import PokemonProjeto.Metodos.Luta1x1;
-import PokemonProjeto.Metodos.Luta6x6;
+import PokemonProjeto.Metodos.LutaUm;
+import PokemonProjeto.Metodos.LutaSeis;
 import PokemonProjeto.Pessoa.Treinador;
 import PokemonProjeto.Pokemon.Pokemon;
 import PokemonProjeto.Pokemon.PokemonLegends;
@@ -72,7 +71,7 @@ public class ProjetoPokemon {
         treinador1.exibirInventario();
 
         //criando primeira luta (aleatória)
-        Luta1x1 luta1x1 = new Luta1x1(pikachu, charmander);
+        LutaUm luta1x1 = new LutaUm (pikachu, charmander);
         luta1x1.lutar();
         //criando mais 9 Pokémons para uma luta 6VS6
         int[] IVs4 = {30, 31, 30, 29, 31};
@@ -108,7 +107,7 @@ public class ProjetoPokemon {
 
         Pokemon [] equipe1 = {pikachu, charmander, mewtwo, bulbasaur, squirtle, eevee};
         Pokemon [] equipe2 = {jolteon, flareon, snorlax, alakazam, gengar, dragonite};
-        Luta6x6 luta6x6 = new Luta6x6(equipe1, equipe2);
+        LutaSeis luta6x6 = new LutaSeis(equipe1, equipe2);
         luta6x6.lutar();
 
         //solicitando ao usuário para definir os IVs de um Pokémon
