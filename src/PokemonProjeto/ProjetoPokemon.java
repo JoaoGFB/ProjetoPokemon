@@ -54,7 +54,8 @@ public class ProjetoPokemon {
             System.out.println("4. Exibir IVs de um Pokémon");
             System.out.println("5. Definir IVs de um Pokémon");
             System.out.println("6. Exibir inventário do treinador");
-            System.out.println("7. Sair");
+            System.out.println("7- Buscar Pokémon por índice");
+            System.out.println("8. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = sc.nextInt();
             sc.nextLine();
@@ -136,12 +137,19 @@ public class ProjetoPokemon {
                     treinador1.exibirInventario();
                     break;
                 case 7:
+                    do {
+                        System.out.println("Digite um índice para buscar um Pokémon: ");
+                        escolha = sc.nextInt();
+                    } while(escolha < 1 || escolha > 12);
+                    AcervoPokemons.buscarPokemonPorIndice(escolha);
+                    break;
+                case 8:
                     System.out.println("Saindo do programa. Até mais!");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
-        } while (opcao != 7);
+        } while (opcao != 8);
         sc.close();
     }
 
