@@ -48,15 +48,16 @@ public class ProjetoPokemon {
         int opcao;
         do {
             System.out.println("\n## Menu Pokémon ##");
-            System.out.println("1. Ver Introdução Pokémon");
-            System.out.println("2. Escolher Pokémon para Batalha (1x1)");
-            System.out.println("3. Escolher Pokémon para Batalha (6x6)");
-            System.out.println("4. Exibir IVs de um Pokémon");
-            System.out.println("5. Definir IVs de um Pokémon");
-            System.out.println("6. Exibir inventário do treinador");
+            System.out.println("1- Ver Introdução Pokémon");
+            System.out.println("2- Escolher Pokémon para Batalha (1x1)");
+            System.out.println("3- Escolher Pokémon para Batalha (6x6)");
+            System.out.println("4- Exibir IVs de um Pokémon");
+            System.out.println("5- Definir IVs de um Pokémon");
+            System.out.println("6- Exibir inventário do treinador");
             System.out.println("7- Buscar Pokémon por índice");
             System.out.println("8- Adicionar novo Pokémon");
-            System.out.println("9. Sair");
+            System.out.println("9- Escluir Pokémon");
+            System.out.println("10- Sair");
             System.out.print("Escolha uma opção: ");
             opcao = sc.nextInt();
             sc.nextLine();
@@ -148,12 +149,15 @@ public class ProjetoPokemon {
                     AcervoPokemons.adicionarNovoPokemon();
                     break;
                 case 9:
+                    AcervoPokemons.excluirPokemon();
+                    break;
+                case 10:
                     System.out.println("Saindo do programa. Até mais!");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
-        } while (opcao != 9);
+        } while (opcao != 10);
         sc.close();
     }
 

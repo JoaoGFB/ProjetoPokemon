@@ -67,6 +67,26 @@ public class AcervoPokemons {
         sc.nextLine();
         Pokemon novoPokemon = new Pokemon(nome, tipo, natureza, habilidade, evolucao, ataques, status, IVs);
         pokemons.add(novoPokemon);
-        System.out.println("Pokémon adicionado com sucesso!");
+        System.out.println("**** Pokémon adicionado com sucesso! ****");
+    }
+
+    public static void excluirPokemon() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\n--- Excluir Pokémon ---");
+        if (pokemons.isEmpty()) {
+            System.out.println("Não há Pokémons para excluir.");
+            return;
+        }
+        exibirListaPokemons();
+        System.out.print("Digite o índice do Pokémon que deseja excluir (1 a " + pokemons.size() + "): ");
+        int indice = sc.nextInt();
+        sc.nextLine();
+        int indiceAjustado = indice - 1;
+        if (indiceAjustado >= 0 && indiceAjustado < pokemons.size()) {
+            Pokemon pokemonRemovido = pokemons.remove(indiceAjustado);
+            System.out.println("**** Pokémon removido: " + pokemonRemovido.apresentar()+" ****");
+        } else {
+            System.out.println("Índice inválido! Nenhum Pokémon foi removido.");
+        }
     }
 }
