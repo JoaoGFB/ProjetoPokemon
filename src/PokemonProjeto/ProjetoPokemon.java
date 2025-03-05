@@ -14,7 +14,6 @@ public class ProjetoPokemon {
     public static void main(String[] args) {
         //explicando o Pokémon
         Scanner sc = new Scanner(System.in);
-        String palavra;
         int numero;
 
         do {
@@ -24,9 +23,6 @@ public class ProjetoPokemon {
         } while (numero<0||numero>1);
         if (numero==1) {
             exibirTextoPorPartes();
-            System.out.println("digite uma letra para continuar.");
-            palavra = sc.next();
-
         }
 //        System.out.println("------- Abordando os conceitos de POO com a temática de Pokémon -------");
 //        //criando o primeiro Pokémon e o inicializando com o vetor IVs1
@@ -168,7 +164,7 @@ public class ProjetoPokemon {
         treinador1.adicionarInsignia("Insígnia do Vulcão", 1);
         treinador1.adicionarInsignia("Insígnia da Cascata", 2);
         treinador1.adicionarInsignia("Insígnia da Alma", 3);
-        
+
         do {
             System.out.println("\n## Menu Pokémon ##");
             System.out.println("1. Ver Introdução Pokémon");
@@ -182,23 +178,28 @@ public class ProjetoPokemon {
             opcao = sc.nextInt();
             sc.nextLine();
 
-            int escolha;
+            int escolha, escolhasFeitas = 0;
             switch (opcao) {
                 case 1:
                     exibirTextoPorPartes();
                     break;
                 case 2:
-                    int escolhasFeitas = 0;
                     int[] p = new int[2];
                     while (escolhasFeitas < 2) {
                         System.out.println("\nEscolha o Pokémon para batalha:");
                         for (int i = 0; i < pokemons.size(); i++) {
                             System.out.println((i + 1) + "- " + pokemons.get(i).apresentar());
                         }
+                        boolean valido;
                         do {
                             System.out.print("Digite o número do " + (escolhasFeitas + 1) + "º Pokémon escolhido: ");
                             escolha = sc.nextInt();
-                        } while (escolha < 1 || escolha > pokemons.size());
+                            valido = escolha >= 1 && escolha <= pokemons.size();
+                            if (escolhasFeitas == 1 && escolha - 1 == p[0]) {
+                                System.out.println("Este Pokémon já foi escolhido! Escolha outro.");
+                                valido = false;
+                            }
+                        } while (!valido);
                         p[escolhasFeitas] = escolha - 1;
                         escolhasFeitas++;
                     }
@@ -208,29 +209,31 @@ public class ProjetoPokemon {
                 case 3:
                     Pokemon[] equipe1 = new Pokemon[6];
                     Pokemon[] equipe2 = new Pokemon[6];
-                    System.out.println("\nEscolha os 6 Pokémon para a Equipe 1:");
-                    for (int i = 0; i < 6; i++) {
-                        System.out.println("\nEscolha o " + (i + 1) + "º Pokémon da Equipe 1:");
-                        for (int j = 0; j < pokemons.size(); j++) {
-                            System.out.println((j + 1) + "- " + pokemons.get(j).apresentar());
+                    Pokemon[][] equipes = {equipe1, equipe2};
+                    boolean[] escolhidos = new boolean[pokemons.size()];
+                    for (int equipe = 0; equipe < 2; equipe++) {
+                        escolhasFeitas = 0;
+                        System.out.println("\nEscolha os 6 Pokémon para a Equipe " + (equipe + 1) + ":");
+                        while (escolhasFeitas < 6) {
+                            System.out.println("\nEscolha o " + (escolhasFeitas + 1) + "º Pokémon da Equipe " + (equipe + 1) + ":");
+                            for (int j = 0; j < pokemons.size(); j++) {
+                                System.out.println((j + 1) + "- " + pokemons.get(j).apresentar());
+                            }
+                            boolean valido;
+                            do {
+                                System.out.print("Digite o número do Pokémon escolhido: ");
+                                escolha = sc.nextInt();
+                                valido = escolha >= 1 && escolha <= pokemons.size();
+
+                                if (valido && escolhidos[escolha - 1]) {
+                                    System.out.println("Este Pokémon já foi escolhido! Escolha outro.");
+                                    valido = false;
+                                }
+                            } while (!valido);
+                            equipes[equipe][escolhasFeitas] = pokemons.get(escolha - 1);
+                            escolhidos[escolha - 1] = true; // Marca esse Pokémon como escolhido
+                            escolhasFeitas++;
                         }
-                        do {
-                            System.out.print("Digite o número do Pokémon escolhido: ");
-                            escolha = sc.nextInt();
-                        } while (escolha < 1 || escolha > pokemons.size());
-                        equipe1[i] = pokemons.get(escolha - 1);
-                    }
-                    System.out.println("\nEscolha os 6 Pokémon para a Equipe 2:");
-                    for (int i = 0; i < 6; i++) {
-                        System.out.println("\nEscolha o " + (i + 1) + "º Pokémon da Equipe 2:");
-                        for (int j = 0; j < pokemons.size(); j++) {
-                            System.out.println((j + 1) + "- " + pokemons.get(j).apresentar());
-                        }
-                        do {
-                            System.out.print("Digite o número do Pokémon escolhido: ");
-                            escolha = sc.nextInt();
-                        } while (escolha < 1 || escolha > pokemons.size());
-                        equipe2[i] = pokemons.get(escolha - 1);
                     }
                     LutaSeis luta6x6 = new LutaSeis(equipe1, equipe2);
                     luta6x6.lutar();
@@ -266,7 +269,6 @@ public class ProjetoPokemon {
                     System.out.println("Opção inválida. Tente novamente.");
             }
         } while (opcao != 7);
-
         sc.close();
 
 //        Pokemon [] equipe1 = {pikachu, charmander, mewtwo, bulbasaur, squirtle, eevee};
