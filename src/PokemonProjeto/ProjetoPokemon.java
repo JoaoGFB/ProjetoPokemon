@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ProjetoPokemon {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int numero;
+        int numero, pausa;
 
         do {
             System.out.println("Gostaria de ver a introdução pokémon?");
@@ -56,8 +56,9 @@ public class ProjetoPokemon {
             System.out.println("6- Exibir inventário do treinador");
             System.out.println("7- Buscar Pokémon por índice");
             System.out.println("8- Adicionar novo Pokémon");
-            System.out.println("9- Escluir Pokémon");
-            System.out.println("10- Sair");
+            System.out.println("9- Excluir Pokémon");
+            System.out.println("10- Evoluir Pokémon (Magikarp)");
+            System.out.println("11- Sair");
             System.out.print("Escolha uma opção: ");
             opcao = sc.nextInt();
             sc.nextLine();
@@ -152,12 +153,28 @@ public class ProjetoPokemon {
                     AcervoPokemons.excluirPokemon();
                     break;
                 case 10:
+                    System.out.println("Evoluindo Pokémon");
+
+                    int[] IV13 = {4,6,8,9,10};
+
+                    Pokemon Magikarp = new Pokemon("Magikarp", "agua", "raivoso", "Previnir",
+                            "Gyaradox", "Agua, Splash", "Focado", IV13);
+                    System.out.println(Magikarp.apresentar());
+                    Magikarp.evoluirPokemon();
+                    IV13 = new int[]{34,60,80,70,120};
+                    Magikarp = new Pokemon("Gyaradox", "agua,dragão", "raivoso","Intimidar",
+                            "Evolução Final", "Dragon pulse, Iron tail, Aqua tail", "Pensador",IV13);
+                    System.out.println(Magikarp.apresentar());
+                    break;
+                case 11:
                     System.out.println("Saindo do programa. Até mais!");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
-        } while (opcao != 10);
+            System.out.println("\nDigite um número para continuar");
+            pausa= sc.nextInt();
+        } while (opcao != 11);
         sc.close();
     }
 
